@@ -1,0 +1,24 @@
+.characters {
+    padding-top: 2%;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        opacity: 1;
+        transition: opacity 300ms;
+    }
+
+    h1 {
+        color: #fff;
+        border: none;
+        display: block;
+        padding: 0.375em;
+        padding-left: 0;
+    }
+
+    p {
+        color: #e6e6e6;
+        font-size: 1em;
+        line-height: 1.5;
+    }
+}

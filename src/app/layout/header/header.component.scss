@@ -1,0 +1,30 @@
+.navbar {
+    width: 100%;
+
+    a {
+        color: #FFF !important;
+        font-size: 1.25em;
+        line-height: 24px;
+        transition: all .30s ease;
+
+        &:hover {
+            color: #ffc700 !important;
+        }
+    }
+
+    &.bg-light {
+        background-color: transparent !important;
+    }
+
+    .logo {
+        width: 120px;
+        margin: 14px;
+        position: relative;
+    }
+
+    .active {
+        a {
+            color: #ffc700 !important;
+        }
+    }
+}

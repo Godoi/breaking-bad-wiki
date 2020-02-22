@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-detail.component.scss']
 })
 export class CharacterDetailComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.setBackground();
   }
-
+  setBackground() {
+    document.getElementsByTagName('html')[0].classList.add('site-content');
+  }
 }

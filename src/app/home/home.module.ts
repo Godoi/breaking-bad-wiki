@@ -6,8 +6,7 @@ import { LayoutModule } from '../layout/layout.module';
 import { SharedModule } from '../shared/shared.module';
 import { CharactersComponent } from './characters/characters.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { CharacterListComponent } from './characters/character-list/character-list.component';
-import { CharacterDetailComponent } from './characters/character-detail/character-detail.component';
+import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
@@ -15,7 +14,7 @@ import { HomeRoutingModule } from './home-routing.module';
     HomeComponent,
     CharactersComponent,
     HomepageComponent,
-    CharacterListComponent,
+    CharactersComponent,
     CharacterDetailComponent
   ],
   imports: [HomeRoutingModule, CommonModule, LayoutModule, SharedModule],

@@ -1,0 +1,14 @@
+::ng-deep .jumbotron {
+    background-color: transparent;
+}
+
+.characters {
+    .jumbotron-heading {
+        color: #FFF;
+        text-transform: uppercase;
+    }
+
+    .lead {
+        color: #FFF;
+    }
+}

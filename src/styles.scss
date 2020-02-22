@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+html.home {
+    background-image: url('https://images.amcnetworks.com/amc.com/wp-content/uploads/2010/12/BB_S5_002.jpg');
+}
+
+html.site-content {
+    background: #000000 url(https://images.amcnetworks.com/amc.com/wp-content/uploads/2010/12/BB_bkgd.jpg) center top/100% no-repeat;
+}
+
+html.not-found {
+    background-image: url('https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/404.jpg');
+}
+
+body {
+    background-color: transparent;
+    margin: 0;
+    transition: margin .25s ease;
+}
