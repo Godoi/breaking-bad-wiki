@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 
 import { LayoutModule } from '../layout/layout.module';
-import { SharedModule } from '../shared/shared.module';
 import { CharactersComponent } from './characters/characters.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { EpisodeComponent } from './episode/episode.component';
 
 @NgModule({
   declarations: [
@@ -15,9 +15,10 @@ import { HomeRoutingModule } from './home-routing.module';
     CharactersComponent,
     HomepageComponent,
     CharactersComponent,
-    CharacterDetailComponent
+    CharacterDetailComponent,
+    EpisodeComponent
   ],
-  imports: [HomeRoutingModule, CommonModule, LayoutModule, SharedModule],
+  imports: [HomeRoutingModule, CommonModule, LayoutModule],
   exports: [CharactersComponent]
 })
 export class HomeModule {}

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ICharacters } from 'src/app/shared/model/characters';
 
 @Component({
   selector: 'app-list-box',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-box.component.scss']
 })
 export class ListBoxComponent implements OnInit {
+  @Input()
+  data: ICharacters[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -1,16 +1,23 @@
 <section class="characters">
     <div class="container">
-        <div class="row">
+        <div class="row" *ngFor="let item of characters">
             <div class="col-6">
-                <img class="lazyloaded"
-                    src="https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
-                    data-src="https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
-                    alt="cast_bb_800x600_walter-white">
+                <img class="lazyloaded" src="{{item.img}}" alt="{{item.name}}">
             </div>
             <div class="col-6">
-                <h1>Walter White</h1>
-                <p>Walter White, a high school chemistry teacher and family man, learns he has inoperable lung cancer.
-                    To secure his family's financial future, he begins making meth with </p>
+                <h1>{{item.name}}</h1>
+                <ul>
+                    <li>Nickname : <p>{{item.nickname}}</p>
+                    </li>
+                    <li *ngIf="item.birthday != 'Unknown'">Birthday : <p>{{item.birthday}}</p>
+                    </li>
+                    <li> Occupation : <p *ngFor="let occupation of item.occupation"> {{occupation}}, </p>
+                    </li>
+                    <li> Breaking Bad Seasons : <p *ngFor="let appearance of item.appearance"> {{appearance}}, </p>
+                    </li>
+                    <li> Status : <p>{{item.status}}</p>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
