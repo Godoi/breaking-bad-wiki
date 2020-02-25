@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ICharacters } from 'src/app/shared/model/characters';
 import { CharactersService } from 'src/app/services/characters.service';
-import { take } from 'rxjs/operators';
+import { take, delay, finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-character-detail',
@@ -14,6 +14,7 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription();
   characters: ICharacters;
   id: number;
+  loading: boolean;
   constructor(
     private route: ActivatedRoute,
     private service: CharactersService
@@ -29,10 +30,15 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
     document.getElementsByTagName('html')[0].classList.add('site-content');
   }
   getLimitCharacters(id: number) {
+    this.loading = true;
     this.subscriptions.add(
       this.service
         .getSpecificCharacters(id)
-        .pipe(take(1))
+        .pipe(
+          take(1),
+          delay(150),
+          finalize(() => (this.loading = false))
+        )
         .subscribe(res => {
           return (this.characters = res);
         })

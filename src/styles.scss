@@ -5,15 +5,15 @@ html {
 }
 
 html.home {
-    background-image: url('https://images.amcnetworks.com/amc.com/wp-content/uploads/2010/12/BB_S5_002.jpg');
+    background-image: url('./assets/images/back-home.jpg')
 }
 
 html.site-content {
-    background: #000000 url(https://images.amcnetworks.com/amc.com/wp-content/uploads/2010/12/BB_bkgd.jpg) center top/100% no-repeat;
+    background: #000000 url('./assets/images/back-internal.jpg') center top/100% no-repeat;
 }
 
 html.not-found {
-    background-image: url('https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/404.jpg');
+    background-image: url('./assets/images/back-internal.jpg');
 }
 
 body {

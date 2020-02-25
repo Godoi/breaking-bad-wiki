@@ -11,14 +11,17 @@
                     </li>
                     <li *ngIf="item.birthday != 'Unknown'">Birthday : <p>{{item.birthday}}</p>
                     </li>
-                    <li> Occupation : <p *ngFor="let occupation of item.occupation"> {{occupation}}, </p>
+                    <li *ngIf="item.occupation"> Occupation : <p *ngFor="let occupation of item.occupation">
+                            {{occupation}}, </p>
                     </li>
-                    <li> Breaking Bad Seasons : <p *ngFor="let appearance of item.appearance"> {{appearance}}, </p>
+                    <li *ngIf="item.appearance.length"> Breaking Bad Seasons : <p
+                            *ngFor="let appearance of item.appearance"> {{appearance}}, </p>
                     </li>
-                    <li> Status : <p>{{item.status}}</p>
+                    <li *ngIf="item.status != '?'"> Status : <p>{{item.status}}</p>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
+<app-loading [loading]="loading"></app-loading>

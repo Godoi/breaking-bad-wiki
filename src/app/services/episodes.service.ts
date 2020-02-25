@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError, filter, map } from 'rxjs/operators';
+import { retry, catchError, filter, map, toArray } from 'rxjs/operators';
 import { IEpisodes } from '../shared/model/episodes';
 
 const API_URL = 'https://breakingbadapi.com/api';
@@ -17,21 +17,6 @@ export class EpisodesService {
     return this.http
       .get<IEpisodes>(url)
       .pipe(retry(1), catchError(this.handleError));
-  }
-
-  getSpecificEpisode(id: number): Observable<IEpisodes> {
-    const url = `${API_URL}/episodes/${id}`;
-    return this.http
-      .get<IEpisodes>(url)
-      .pipe(retry(1), catchError(this.handleError));
-  }
-
-  getEpisodeBySeason(season: string): Observable<IEpisodes> {
-    const url = `${API_URL}/episodes`;
-    return this.http.get<IEpisodes>(url).pipe(
-      filter(item => item.season === season),
-      catchError(this.handleError)
-    );
   }
 
   handleError(error) {

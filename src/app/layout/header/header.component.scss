@@ -30,9 +30,13 @@
 }
 
 .navbar-toggler {
-    background-color: t transparent;
-    border-color: rgba(0, 0, 0, .1);
+    background-color: transparent;
+    border-color: #FFF;
     position: absolute;
     top: 0;
     margin-top: 28px;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: #FFF;
 }

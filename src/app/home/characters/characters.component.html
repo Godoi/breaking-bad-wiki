@@ -9,4 +9,23 @@
   </div>
 </section>
 
-<app-list-box [data]="characters"></app-list-box>
+<section class="characters">
+  <div class="container">
+    <div class="dropdown mb40">
+      <button class="btn btn-breaking dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Select number of characters
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button" (click)="getAllCharacters()">All</button>
+        <button class="dropdown-item" type="button" (click)="getLimitCharacters(9)">9</button>
+        <button class="dropdown-item" type="button" (click)="getLimitCharacters(51)">51</button>
+        <button class="dropdown-item" type="button" (click)="getLimitCharacters(99)">99</button>
+        <button class="dropdown-item" type="button" (click)="getLimitCharacters(150)">150</button>
+        <button class="dropdown-item" type="button" (click)="getLimitCharacters(200)">200</button>
+      </div>
+    </div>
+    <app-list-box [data]="characters"></app-list-box>
+  </div>
+</section>
+<app-loading [loading]="loading"></app-loading>
