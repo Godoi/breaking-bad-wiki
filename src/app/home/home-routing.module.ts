@@ -4,7 +4,6 @@ import { HomeComponent } from './home.component';
 import { CharactersComponent } from './characters/characters.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
-import { EpisodeComponent } from './episode/episode.component';
 
 const routes: Routes = [
   {
@@ -22,10 +21,6 @@ const routes: Routes = [
       {
         path: 'characters-detail/:id',
         component: CharacterDetailComponent
-      },
-      {
-        path: 'episodes',
-        component: EpisodeComponent
       }
     ]
   }

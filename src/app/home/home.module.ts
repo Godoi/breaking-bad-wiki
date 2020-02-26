@@ -7,7 +7,6 @@ import { CharactersComponent } from './characters/characters.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { EpisodeComponent } from './episode/episode.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { EpisodeComponent } from './episode/episode.component';
     CharactersComponent,
     HomepageComponent,
     CharactersComponent,
-    CharacterDetailComponent,
-    EpisodeComponent
+    CharacterDetailComponent
   ],
   imports: [HomeRoutingModule, CommonModule, LayoutModule],
   exports: [CharactersComponent]
