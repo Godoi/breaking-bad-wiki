@@ -1,5 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
+import { LayoutModule } from 'src/app/layout/layout.module';
 import { CharacterDetailComponent } from './character-detail.component';
 
 describe('CharacterDetailComponent', () => {
@@ -8,9 +12,14 @@ describe('CharacterDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CharacterDetailComponent ]
-    })
-    .compileComponents();
+      declarations: [CharacterDetailComponent],
+      imports: [
+        HttpClientTestingModule,
+        RouterModule.forRoot([]),
+        LayoutModule
+      ],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
