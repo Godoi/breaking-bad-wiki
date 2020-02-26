@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -13,13 +14,12 @@ import { LoadingComponent } from './loading/loading.component';
     ListBoxComponent,
     LoadingComponent
   ],
-  imports: [CommonModule, HomeRoutingModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     HeaderComponent,
     NotFoundComponent,
     ListBoxComponent,
-    LoadingComponent,
-    HomeRoutingModule
+    LoadingComponent
   ]
 })
 export class LayoutModule {}

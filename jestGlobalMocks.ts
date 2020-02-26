@@ -1,5 +1,7 @@
+import { global } from '@angular/compiler/src/util';
+
 (window as any).global = window;
-global['CSS'] = null;
+global.CSS = null;
 
 const mock = () => {
   let storage = {};
