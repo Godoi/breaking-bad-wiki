@@ -29,7 +29,6 @@ export class CharactersComponent implements OnInit, OnDestroy {
         .getAllCharacters()
         .pipe(
           take(1),
-          delay(150),
           finalize(() => (this.loading = false))
         )
         .subscribe(res => {
