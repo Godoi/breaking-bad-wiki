@@ -33,13 +33,6 @@ export class CharactersService {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  getByNameCharacters(name: string): Observable<ICharacters> {
-    const url = `${API_URL}/characters?name${name}`;
-    return this.http
-      .get<ICharacters>(url)
-      .pipe(retry(1), catchError(this.handleError));
-  }
-
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

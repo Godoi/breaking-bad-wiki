@@ -20,4 +20,13 @@ describe('NotFoundComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('setBackground', () => {
+    it('should contain the not-found class in the html tag', () => {
+      component.ngOnInit();
+      expect(document.getElementsByTagName('html')[0].className).toEqual(
+        'not-found'
+      );
+    });
+  });
 });

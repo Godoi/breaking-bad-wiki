@@ -23,20 +23,19 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.setBackground();
     this.route.params.subscribe(params => {
-      this.getLimitCharacters(params.id);
+      this.getSpecificCharacters(params.id);
     });
   }
   setBackground() {
     document.getElementsByTagName('html')[0].classList.add('site-content');
   }
-  getLimitCharacters(id: number) {
+  getSpecificCharacters(id: number) {
     this.loading = true;
     this.subscriptions.add(
       this.service
         .getSpecificCharacters(id)
         .pipe(
           take(1),
-          delay(150),
           finalize(() => (this.loading = false))
         )
         .subscribe(res => {
