@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, Routes } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -27,7 +27,7 @@ describe('CharacterDetailComponent', () => {
         RouterModule.forRoot([]),
         LayoutModule
       ],
-      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
+      providers: [{ provide: APP_BASE_HREF, useValue: '/characters-detail/1' }]
     }).compileComponents();
   }));
 
@@ -48,15 +48,6 @@ describe('CharacterDetailComponent', () => {
       expect(document.getElementsByTagName('html')[0].className).toEqual(
         'site-content'
       );
-    });
-    it('should loading be true before subscribe', () => {
-      jest
-        .spyOn(charactersService, 'getSpecificCharacters')
-        .mockImplementation(() =>
-          of(MOCK_CHARACTERS_RESULT[0]).pipe(delay(100))
-        );
-      component.ngOnInit();
-      expect(component.loading).toBeTruthy();
     });
     it('should loading be false after subscribe', () => {
       jest
@@ -92,6 +83,19 @@ describe('CharacterDetailComponent', () => {
 
       component.getSpecificCharacters(1);
       expect(component.loading).toBeFalsy();
+    });
+    it('should return null getSpecificCharacters called with null', () => {
+      expect(component.getSpecificCharacters(null)).toBeNull();
+    });
+    it('should return null getSpecificCharacters called with undefined', () => {
+      expect(component.getSpecificCharacters(undefined)).toBeNull();
+    });
+    it('should set content characters', () => {
+      jest
+        .spyOn(charactersService, 'getSpecificCharacters')
+        .mockReturnValue(of(MOCK_CHARACTERS_LIMIT));
+      component.getSpecificCharacters(1);
+      expect(component.characters).toEqual(MOCK_CHARACTERS_LIMIT);
     });
   });
 });

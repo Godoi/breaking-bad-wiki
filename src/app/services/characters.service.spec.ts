@@ -11,7 +11,12 @@ import {
   MOCK_CHARACTERS_LIMIT
 } from '../shared/mock/characters';
 import { of } from 'rxjs';
-import { ɵConsole } from '@angular/core';
+import { ɵConsole, inject } from '@angular/core';
+import {
+  HttpClientModule,
+  HttpRequest,
+  HttpErrorResponse
+} from '@angular/common/http';
 
 let service: CharactersService;
 let httpMock: HttpTestingController;
@@ -20,11 +25,12 @@ let httpTestingController: HttpTestingController;
 beforeEach(() => {
   TestBed.configureTestingModule({
     providers: [CharactersService],
-    imports: [HttpClientTestingModule]
+    imports: [HttpClientModule, HttpClientTestingModule]
   });
   httpTestingController = TestBed.get(HttpTestingController);
   service = TestBed.get(CharactersService);
   httpMock = TestBed.get(HttpTestingController);
+  jest.spyOn(console, 'error').mockImplementation(() => undefined);
 });
 
 describe('CharactersService', () => {
@@ -40,6 +46,13 @@ describe('CharactersService', () => {
       const req = httpMock.expectOne(`${EXPECTED_URL}/characters`);
       expect(req.request.method).toBe('GET');
     });
+    it('hould call the GET characters api and return all results', () => {
+      let dataAll = {};
+      service.getAllCharacters().subscribe(data => (dataAll = data));
+      const req = httpMock.expectOne(`${EXPECTED_URL}/characters`);
+      req.flush(MOCK_CHARACTERS);
+      expect(dataAll).toEqual(MOCK_CHARACTERS);
+    });
   });
 
   describe('getLimitCharacters', () => {
@@ -51,17 +64,15 @@ describe('CharactersService', () => {
       );
       expect(req.request.method).toBe('GET');
     });
-    it('should limit 1 characters', done => {
+    it('should call the GET characters api and return the result', () => {
       const LIMIT = 3;
-      service.getLimitCharacters(LIMIT).subscribe(res => {
-        expect(res).toEqual(MOCK_CHARACTERS_LIMIT);
-        done();
-      });
+      let dataLimit = {};
+      service.getLimitCharacters(LIMIT).subscribe(data => (dataLimit = data));
       const req = httpMock.expectOne(
         `${EXPECTED_URL}/characters?limit=${LIMIT}&offset=0`
       );
       req.flush(MOCK_CHARACTERS_LIMIT);
-      httpTestingController.verify();
+      expect(dataLimit).toEqual(MOCK_CHARACTERS_LIMIT);
     });
   });
 
@@ -72,15 +83,26 @@ describe('CharactersService', () => {
       const req = httpMock.expectOne(`${EXPECTED_URL}/characters/${ID}`);
       expect(req.request.method).toBe('GET');
     });
-    it('should bring the character from id 1', done => {
+    it('should call the GET characters api and return the result', () => {
       const ID = 1;
-      service.getSpecificCharacters(ID).subscribe(item => {
-        expect(item).toEqual(MOCK_CHARACTERS_RESULT[0]);
-        done();
-      });
+      let dataSpecific = {};
+      service
+        .getSpecificCharacters(ID)
+        .subscribe(data => (dataSpecific = data));
       const req = httpMock.expectOne(`${EXPECTED_URL}/characters/${ID}`);
       req.flush(MOCK_CHARACTERS_RESULT[0]);
-      httpTestingController.verify();
+      expect(dataSpecific).toEqual(MOCK_CHARACTERS_RESULT[0]);
+    });
+  });
+
+  describe('handleError', () => {
+    it('should return an observable of undefined and print error to console', () => {
+      const result = service.handleError(
+        new HttpErrorResponse({ error: 'Error occurs' }),
+        'test method'
+      );
+      expect(console.error).toHaveBeenCalled();
+      result.subscribe(value => expect(value).toBeUndefined());
     });
   });
 });

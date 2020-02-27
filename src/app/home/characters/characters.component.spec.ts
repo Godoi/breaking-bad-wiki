@@ -59,6 +59,13 @@ describe('CharactersComponent', () => {
       component.ngOnInit();
       expect(component.loading).toBeFalsy();
     });
+    it('should set content characters', () => {
+      jest
+        .spyOn(charactersService, 'getAllCharacters')
+        .mockReturnValue(of(MOCK_CHARACTERS));
+      component.ngOnInit();
+      expect(component.characters).toEqual(MOCK_CHARACTERS);
+    });
   });
   describe('setBackground', () => {
     it('should contain the site-content class in the html tag', () => {
@@ -86,6 +93,13 @@ describe('CharactersComponent', () => {
       component.ngOnInit();
       expect(component.loading).toBeFalsy();
     });
+    it('should set content characters', () => {
+      jest
+        .spyOn(charactersService, 'getAllCharacters')
+        .mockReturnValue(of(MOCK_CHARACTERS));
+      component.ngOnInit();
+      expect(component.characters).toEqual(MOCK_CHARACTERS);
+    });
   });
   describe('getLimitCharacters', () => {
     it('should loading be true before subscribe', () => {
@@ -102,6 +116,12 @@ describe('CharactersComponent', () => {
 
       component.getLimitCharacters(3);
       expect(component.loading).toBeFalsy();
+    });
+    it('should return null getLimitCharacters called with null', () => {
+      expect(component.getLimitCharacters(null)).toBeNull();
+    });
+    it('should return null getLimitCharacters called with undefined', () => {
+      expect(component.getLimitCharacters(undefined)).toBeNull();
     });
   });
 });
