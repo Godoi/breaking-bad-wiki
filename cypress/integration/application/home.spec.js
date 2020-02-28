@@ -10,7 +10,7 @@ context('Application Breaking Bad', () => {
     describe('Accessing the Characters page through the main page button', function () {
         it('successfully loads Characters page', function () {
             cy.visit('http://localhost:4200/');
-            cy.get('.btn-link').click();
+            cy.get('[data-cy=btn-all-characters]').click();
             cy.location().should((loc) => {
                 expect(loc.href).to.eq('http://localhost:4200/home/characters')
             });
@@ -19,7 +19,7 @@ context('Application Breaking Bad', () => {
     describe('Accessing the Characters page through the main page menu', function () {
         it('successfully loads Characters page', function () {
             cy.visit('http://localhost:4200/');
-            cy.get('.nav-item.active a').eq(0).click();
+            cy.get('[data-cy=menu-characters]').click();
             cy.location().should((loc) => {
                 expect(loc.href).to.eq('http://localhost:4200/home/characters')
             });
