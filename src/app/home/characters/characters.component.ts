@@ -37,13 +37,15 @@ export class CharactersComponent implements OnInit, OnDestroy {
     );
   }
   getLimitCharacters(limit: number) {
+    if (limit === null || limit === undefined) {
+      return null;
+    }
     this.loading = true;
     this.subscriptions.add(
       this.service
         .getLimitCharacters(limit)
         .pipe(
           take(1),
-          delay(150),
           finalize(() => (this.loading = false))
         )
         .subscribe(res => {

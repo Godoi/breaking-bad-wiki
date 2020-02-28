@@ -24,4 +24,12 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  describe('setBackground', () => {
+    it('should contain the Home class in the html tag', () => {
+      component.setBackground();
+      expect(document.getElementsByTagName('html')[0].className).toEqual(
+        'home'
+      );
+    });
+  });
 });
