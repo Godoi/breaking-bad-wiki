@@ -17,7 +17,6 @@ context('Application Breaking Bad', () => {
       );
       cy.get('@character').should(response => {
         theCharacter = response.body[0];
-        // console.log('Detail ', theCharacter);
       });
     });
     it('should contain character Name on screen', function() {
@@ -33,11 +32,6 @@ context('Application Breaking Bad', () => {
     it('should contain character Birthday on screen', function() {
       cy.get('[data-cy=birthday]').should($identifier => {
         expect($identifier[0].innerText).to.equal(theCharacter.birthday);
-      });
-    });
-    it('should contain character Status on screen', function() {
-      cy.get('[data-cy=status]').should($identifier => {
-        expect($identifier[0].innerText).to.equal(theCharacter.status);
       });
     });
     it('should contain character Status on screen', function() {
