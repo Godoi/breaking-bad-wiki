@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterModule, Router, Routes } from '@angular/router';
+import {
+  RouterModule,
+  Router,
+  Routes,
+  convertToParamMap
+} from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -27,7 +32,7 @@ describe('CharacterDetailComponent', () => {
         RouterModule.forRoot([]),
         LayoutModule
       ],
-      providers: [{ provide: APP_BASE_HREF, useValue: '/characters-detail/1' }]
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     }).compileComponents();
   }));
 
@@ -53,7 +58,6 @@ describe('CharacterDetailComponent', () => {
       jest
         .spyOn(charactersService, 'getSpecificCharacters')
         .mockReturnValue(of(MOCK_CHARACTERS_RESULT[0]));
-
       component.ngOnInit();
       expect(component.loading).toBeFalsy();
     });
@@ -80,7 +84,6 @@ describe('CharacterDetailComponent', () => {
       jest
         .spyOn(charactersService, 'getSpecificCharacters')
         .mockReturnValue(of(MOCK_CHARACTERS_RESULT[0]));
-
       component.getSpecificCharacters(1);
       expect(component.loading).toBeFalsy();
     });
@@ -93,9 +96,9 @@ describe('CharacterDetailComponent', () => {
     it('should set content characters', () => {
       jest
         .spyOn(charactersService, 'getSpecificCharacters')
-        .mockReturnValue(of(MOCK_CHARACTERS_LIMIT));
+        .mockReturnValue(of(MOCK_CHARACTERS_RESULT[0]));
       component.getSpecificCharacters(1);
-      expect(component.characters).toEqual(MOCK_CHARACTERS_LIMIT);
+      expect(component.characters).toEqual(MOCK_CHARACTERS_RESULT[0]);
     });
   });
 });

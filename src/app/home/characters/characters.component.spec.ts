@@ -59,13 +59,6 @@ describe('CharactersComponent', () => {
       component.ngOnInit();
       expect(component.loading).toBeFalsy();
     });
-    it('should set content characters', () => {
-      jest
-        .spyOn(charactersService, 'getAllCharacters')
-        .mockReturnValue(of(MOCK_CHARACTERS));
-      component.ngOnInit();
-      expect(component.characters).toEqual(MOCK_CHARACTERS);
-    });
   });
   describe('setBackground', () => {
     it('should contain the site-content class in the html tag', () => {
@@ -97,7 +90,7 @@ describe('CharactersComponent', () => {
       jest
         .spyOn(charactersService, 'getAllCharacters')
         .mockReturnValue(of(MOCK_CHARACTERS));
-      component.ngOnInit();
+      component.getAllCharacters();
       expect(component.characters).toEqual(MOCK_CHARACTERS);
     });
   });
