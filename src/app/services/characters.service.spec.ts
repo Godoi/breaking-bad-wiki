@@ -74,6 +74,12 @@ describe('CharactersService', () => {
       req.flush(MOCK_CHARACTERS_LIMIT);
       expect(dataLimit).toEqual(MOCK_CHARACTERS_LIMIT);
     });
+    it('should return null if parameter is null', () => {
+      expect(service.getLimitCharacters(null)).toBeNull();
+    });
+    it('should return null if parameter is undefined', () => {
+      expect(service.getLimitCharacters(undefined)).toBeNull();
+    });
   });
 
   describe('getSpecificCharacters', () => {
@@ -92,6 +98,12 @@ describe('CharactersService', () => {
       const req = httpMock.expectOne(`${EXPECTED_URL}/characters/${ID}`);
       req.flush(MOCK_CHARACTERS_RESULT[0]);
       expect(dataSpecific).toEqual(MOCK_CHARACTERS_RESULT[0]);
+    });
+    it('should return null if parameter is null', () => {
+      expect(service.getSpecificCharacters(null)).toBeNull();
+    });
+    it('should return null if parameter is undefined', () => {
+      expect(service.getSpecificCharacters(undefined)).toBeNull();
     });
   });
 

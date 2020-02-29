@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CharactersService } from 'src/app/services/characters.service';
-import { Subscription } from 'rxjs';
-import { take, finalize, delay } from 'rxjs/operators';
+import { Subscription, of } from 'rxjs';
+import { take, finalize, catchError } from 'rxjs/operators';
 import { ICharacters } from '../../shared/model/characters';
 
 @Component({
@@ -13,6 +13,7 @@ export class CharactersComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription();
   characters: ICharacters;
   loading: boolean;
+  isError: boolean;
   constructor(private service: CharactersService) {}
 
   ngOnInit() {
@@ -37,7 +38,7 @@ export class CharactersComponent implements OnInit, OnDestroy {
     );
   }
   getLimitCharacters(limit: number) {
-    if (limit === null || limit === undefined) {
+    if (!limit) {
       return null;
     }
     this.loading = true;

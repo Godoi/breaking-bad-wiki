@@ -30,7 +30,7 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
     document.getElementsByTagName('html')[0].classList.add('site-content');
   }
   getSpecificCharacters(id: number) {
-    if (id === null || id === undefined) {
+    if (!id) {
       return null;
     }
     this.loading = true;

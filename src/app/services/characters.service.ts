@@ -21,6 +21,9 @@ export class CharactersService {
   }
 
   getLimitCharacters(limit: number): Observable<ICharacters> {
+    if (!limit) {
+      return null;
+    }
     const url = `${API_URL}/characters?limit=${limit}&offset=0`;
     return this.http.get<ICharacters>(url).pipe(
       retry(1),
@@ -29,6 +32,9 @@ export class CharactersService {
   }
 
   getSpecificCharacters(id: number): Observable<ICharacters> {
+    if (!id) {
+      return null;
+    }
     const url = `${API_URL}/characters/${id}`;
     return this.http.get<ICharacters>(url).pipe(
       retry(1),
