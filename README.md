@@ -4,6 +4,10 @@ Breaking Bad Angular Wiki
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
 
+## Installing
+
+Access the project and run the command `npm install`.
+
 ## Development server
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -14,16 +18,19 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
-Run `npm test` to execute the unit tests via [Jest](https://karma-runner.github.io).
-Run `npm run test:watch` to execute the unit tests via
+Run `npm test` to run the tests once.
+Run `npm run test: watch` to run unit tests with the option to automatically reload and search for files.
+Developed in Jest [Jest](https://jestjs.io/).
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `npm run cypress` to execute the end-to-end tests via [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html).
+
+The tests are available in the <b>application</b> folder.
 
 ## Further help
 
