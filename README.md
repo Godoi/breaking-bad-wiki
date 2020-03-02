@@ -39,12 +39,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Code Review
 
 - Defini padrão de class para CSS para isso é aconselhável configurar `stylelint`;
-- Componente header colocar a tag header;
+- [ok] Componente header colocar a tag header;
 - Pensar em componentizar mais os elementos. (exemplo o button no header);
 - Pensar no lazyload nas sub-rotas;
 - Cores do CSS colocar em variáveis;
 - Pensar em componentizar mais como button, dropdown, card;
 - Character-detail usar [detailedlist]; (https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/dl)
 - Criar um componente detailedlist;
-- No service fazer a concatenação do queryparams e não no componente;
+- Proprio service do angular pra fazer a concatenação do queryparams;
 - Rever os seletores no Cypress que escaparam e ficou na class do css;
