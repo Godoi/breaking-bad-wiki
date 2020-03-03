@@ -6,23 +6,27 @@
             </div>
             <div class=" col-6">
                 <h1 data-cy="name">{{item.name}}</h1>
-                <ul>
-                    <li>Nickname : <p data-cy="nickname">{{item.nickname}}</p>
-                    </li>
-                    <li *ngIf="item.birthday != 'Unknown'">Birthday : <p data-cy="birthday">{{item.birthday}}
-                        </p>
-                    </li>
-                    <li *ngIf="item.occupation"> Occupation :
-                        <p *ngFor="let occupation of item.occupation" data-cy="occupation">
-                            {{occupation}}, </p>
-                    </li>
-                    <li *ngIf="item.appearance.length"> Breaking Bad Seasons : <p
-                            *ngFor="let appearance of item.appearance" data-cy="appearance"> {{appearance}},
-                        </p>
-                    </li>
-                    <li *ngIf="item.status != '?'"> Status : <p data-cy="status">{{item.status}}</p>
-                    </li>
-                </ul>
+                <dl>
+                    <dt> Nickname: </dt>
+                    <dd data-cy="nickname"> {{item.nickname}} </dd>
+                    <dt *ngIf="item.birthday != 'Unknown'"> Birthday: </dt>
+                    <dd data-cy="birthday"> {{item.birthday}} </dd>
+                    <dt *ngIf="item.occupation"> Occupation: </dt>
+                    <dd data-cy="occupation">
+                        <p *ngFor="let occupation of item.occupation"> {{occupation}},</p>
+                    </dd>
+                    <dt *ngIf="item.appearance.length">Breaking Bad Seasons : </dt>
+                    <dd data-cy="appearance">
+                        <p *ngFor="let appearance of item.appearance">{{appearance}},</p>
+                    </dd>
+                    <dt *ngIf="item.status != '?'">
+                        Status:
+                    </dt>
+                    <dd *ngIf="item.status != '?'" data-cy="status">
+                        {{item.status}}
+                    </dd>
+                </dl>
+
             </div>
         </div>
     </div>
