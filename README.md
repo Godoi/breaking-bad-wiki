@@ -45,6 +45,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Cores do CSS colocar em variáveis;
 - Pensar em componentizar mais como button, dropdown, card;
 - [ok] Character-detail usar [detailedlist]; (https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/dl)
-- Criar um componente detailedlist;
+- [ok] Criar um componente detailedlist;
 - Proprio service do angular pra fazer a concatenação do queryparams;
 - [ok] Rever os seletores no Cypress que escaparam e ficou na class do css;
