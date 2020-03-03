@@ -16,11 +16,9 @@ context('Application Breaking Bad', () => {
             cy.get('@characters').should((response) => {
                 quantApiCharacters = response.body.length;
             });
-            cy.get('.characters')
-                .find('.col-md-4')
-                .should(($identifier) => {
-                    quantScreenCharacters = $identifier.length;
-                });
+            cy.get('[data-cy=list-character]').should(($identifier) => {
+                quantScreenCharacters = $identifier.length;
+            });
             expect(quantScreenCharacters).to.equal(quantApiCharacters);
         });
     });
@@ -35,71 +33,59 @@ context('Application Breaking Bad', () => {
             cy.get('[data-cy=dropdown-limit]').click();
             cy.get('[data-cy=dropdown-item]').eq(0).click();
             cy.wait(1000);
-            cy.get('.characters')
-                .find('.col-md-4')
-                .should(($identifier) => {
-                    expect($identifier.length).to.equal(quantApiCharacters);
-                });
+            cy.get('[data-cy=list-character]').should(($identifier) => {
+                expect($identifier.length).to.equal(quantApiCharacters);
+            });
         });
         it('should contain 9 characters', () => {
             cy.get('[data-cy=dropdown-limit]').click();
             cy.get('[data-cy=dropdown-item]').eq(1).click();
             cy.wait(1000);
-            cy.get('.characters')
-                .find('.col-md-4')
-                .should(($identifier) => {
-                    expect($identifier.length).to.equal(9);
-                });
+            cy.get('[data-cy=list-character]').should(($identifier) => {
+                expect($identifier.length).to.equal(9);
+            });
         });
         it('should contain 15 characters', () => {
             cy.get('[data-cy=dropdown-limit]').click();
             cy.get('[data-cy=dropdown-item]').eq(2).click();
             cy.wait(1000);
-            cy.get('.characters')
-                .find('.col-md-4')
-                .should(($identifier) => {
-                    expect($identifier.length).to.equal(15);
-                });
+            cy.get('[data-cy=list-character]').should(($identifier) => {
+                expect($identifier.length).to.equal(15);
+            });
         });
         it('should contain 21 characters', () => {
             cy.get('[data-cy=dropdown-limit]').click();
             cy.get('[data-cy=dropdown-item]').eq(3).click();
             cy.wait(1000);
-            cy.get('.characters')
-                .find('.col-md-4')
-                .should(($identifier) => {
-                    expect($identifier.length).to.equal(21);
-                });
+            cy.get('[data-cy=list-character]').should(($identifier) => {
+                expect($identifier.length).to.equal(21);
+            });
         });
         it('should contain 27 characters', () => {
             cy.get('[data-cy=dropdown-limit]').click();
             cy.get('[data-cy=dropdown-item]').eq(4).click();
             cy.wait(1000);
-            cy.get('.characters')
-                .find('.col-md-4')
-                .should(($identifier) => {
-                    expect($identifier.length).to.equal(27);
-                });
+            cy.get('[data-cy=list-character]').should(($identifier) => {
+                expect($identifier.length).to.equal(27);
+            });
         });
         it('should contain 33 characters', () => {
             cy.get('[data-cy=dropdown-limit]').click();
             cy.get('[data-cy=dropdown-item]').eq(5).click();
             cy.wait(1000);
-            cy.get('.characters')
-                .find('.col-md-4')
-                .should(($identifier) => {
-                    expect($identifier.length).to.equal(33);
-                });
+            cy.get('[data-cy=list-character]').should(($identifier) => {
+                expect($identifier.length).to.equal(33);
+            });
         });
     });
     describe('Accessing the Characters Detail page through the detail button', function () {
         it('successfully loads Characters Detail page', function () {
             let url, domain;
-            cy.get('.characters .col-md-4 .card-body').eq(0).find('button').should(($identifier) => {
+            cy.get('[data-cy=btn-detail]').eq(0).should(($identifier) => {
                 domain = $identifier[0].baseURI.substring(0, ($identifier[0].baseURI.length - 1));
-                url = `${domain}${$identifier[0].attributes[4].value.replace(',', '')}`;
+                url = `${domain}${$identifier[0].attributes[5].value.replace(',', '')}`;
             });
-            cy.get('.characters .col-md-4 .card-body').eq(0).find('button').click();
+            cy.get('[data-cy=btn-detail]').eq(0).click();
             cy.location().should((loc) => {
                 expect(loc.href).to.eq(url);
             });
