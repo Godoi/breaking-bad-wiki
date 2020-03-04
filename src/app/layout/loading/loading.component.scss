@@ -1,5 +1,7 @@
+@import 'variables';
+
 .back {
-    background-color: #000;
+    background-color: map-get($colors, black);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,8 +12,8 @@
     left: 0;
 
     .spinner {
-        border: 8px solid #FFF;
-        border-left-color: #3fb573;
+        border: 8px solid map-get($colors, white);
+        border-left-color: map-get($colors, green);
         border-radius: 50%;
         width: 100px;
         height: 100px;

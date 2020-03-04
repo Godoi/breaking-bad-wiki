@@ -1,6 +1,8 @@
+@import 'variables';
+
 .btn-link {
-    color: #fff !important;
-    border: 1px solid #fff;
+    color: map-get($colors, white) !important;
+    border: 1px solid map-get($colors, white);
     font-size: 16px;
     letter-spacing: 1px;
     padding: 11px 17px;
@@ -8,19 +10,19 @@
 
     &:hover {
         transition: all .30s ease;
-        color: #ffc700 !important;
-        border: 1px solid #ffc700;
+        color: map-get($colors, yellow) !important;
+        border: 1px solid map-get($colors, yellow);
     }
 }
 
 p {
-    color: #FFF;
+    color: map-get($colors, white);
     font-size: 1.125em;
     line-height: 1.5;
 }
 
 h2 {
-    color: #FFF;
+    color: map-get($colors, white);
     line-height: 1.16667;
     margin: 0;
     text-transform: uppercase;
@@ -31,7 +33,7 @@ h2 {
 article {
     margin-top: 20%;
     margin-left: 10%;
-    background-color: #000;
+    background-color: map-get($colors, black);
     opacity: .60;
     padding: 40px;
     display: block;

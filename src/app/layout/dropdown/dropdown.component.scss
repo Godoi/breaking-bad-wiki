@@ -1,7 +1,9 @@
+@import 'variables';
+
 .btn-breaking {
-    color: #000000 !important;
-    background-color: #3fb573;
-    border-color: #3fb573;
+    color: map-get($colors, black) !important;
+    background-color: map-get($colors, green);
+    border-color: map-get($colors, green);
 }
 
 .mb40 {

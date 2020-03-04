@@ -1,7 +1,9 @@
+@import 'variables';
+
 .section-not-found {
 
     h1 {
-        color: #FFF;
+        color: map-get($colors, white);
         font-size: 4em;
         text-transform: uppercase;
         text-align: center;
@@ -9,18 +11,18 @@
     }
 
     p {
-        color: #FFF;
+        color: map-get($colors, white);
         font-size: 1.125em;
         line-height: 1.5;
     }
 
     a {
-        color: #ffc700 !important;
+        color: map-get($colors, yellow) !important;
         text-decoration: none;
     }
 
     a:hover {
-        color: #ffc700;
+        color: map-get($colors, yellow);
         text-decoration: underline;
     }
 
@@ -42,7 +44,7 @@
         position: absolute;
         opacity: 0.6;
         top: 0;
-        background-color: #000;
+        background-color: map-get($colors, black);
         left: 0;
     }
 
