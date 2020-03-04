@@ -40,7 +40,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - Defini padrão de class para CSS para isso é aconselhável configurar `stylelint`;
 - [ok] Componente header colocar a tag header;
-- Pensar em componentizar mais os elementos. (exemplo o button no header);
+- [ok] Pensar em componentizar mais os elementos. (exemplo o button no header);
 - Pensar no lazyload nas sub-rotas;
 - Cores do CSS colocar em variáveis;
 - Pensar em componentizar mais como button, dropdown, card;
