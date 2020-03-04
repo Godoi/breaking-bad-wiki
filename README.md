@@ -43,7 +43,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - [ok] Pensar em componentizar mais os elementos. (exemplo o button no header);
 - Pensar no lazyload nas sub-rotas;
 - Cores do CSS colocar em variáveis;
-- Pensar em componentizar mais como button, dropdown, card;
+- [ok] Pensar em componentizar mais como button, dropdown, card;
 - [ok] Character-detail usar [detailedlist]; (https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/dl)
 - [ok] Criar um componente detailedlist;
 - Proprio service do angular pra fazer a concatenação do queryparams;
