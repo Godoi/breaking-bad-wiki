@@ -9,13 +9,7 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    CharactersComponent,
-    HomepageComponent,
-    CharactersComponent,
-    CharacterDetailComponent
-  ],
+  declarations: [HomeComponent, CharactersComponent, HomepageComponent, CharactersComponent, CharacterDetailComponent],
   imports: [HomeRoutingModule, CommonModule, LayoutModule],
   exports: [CharactersComponent]
 })

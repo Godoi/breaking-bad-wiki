@@ -1,0 +1,4 @@
+<button [ngClass]="{submit: type === 'submit', default: type !== 'submit', disabled: disabled}" [type]="type"
+    [disabled]="disabled">
+    {{label}}
+</button>
