@@ -43,13 +43,20 @@ export class CharactersComponent implements OnInit, OnDestroy {
         })
     );
   }
-  getQuantCharacters() {
+  getCharactersScroll(limit: number) {
+    if (!limit) {
+      return null;
+    }
+    this.spinner = true;
     this.subscriptions.add(
       this.service
-        .getAllCharacters()
-        .pipe(take(1))
+        .getLimitCharacters(limit)
+        .pipe(
+          take(1),
+          finalize(() => (this.spinner = false))
+        )
         .subscribe(res => {
-          return (this.quantCharacters = Object.values(res).length);
+          return (this.characters = res);
         })
     );
   }
@@ -70,20 +77,13 @@ export class CharactersComponent implements OnInit, OnDestroy {
         })
     );
   }
-  getCharactersScroll(limit: number) {
-    if (!limit) {
-      return null;
-    }
-    this.spinner = true;
+  getQuantCharacters() {
     this.subscriptions.add(
       this.service
-        .getLimitCharacters(limit)
-        .pipe(
-          take(1),
-          finalize(() => (this.spinner = false))
-        )
+        .getAllCharacters()
+        .pipe(take(1))
         .subscribe(res => {
-          return (this.characters = res);
+          return (this.quantCharacters = Object.values(res).length);
         })
     );
   }
