@@ -9,32 +9,48 @@ context('Application Breaking Bad', () => {
     });
     describe('GET api characters', function () {
         it('should call the GET api characters and validate the number of items on the screen', () => {
-            let quantApiCharacters;
-            let quantScreenCharacters;
-            cy.request('https://www.breakingbadapi.com/api/characters').as('characters')
+            cy.request('https://www.breakingbadapi.com/api/characters?limit=3&offset=0').as('characters')
+            cy.get('@characters').then(response => {
+                cy.get('[data-cy=list-character]').should(($identifier) => {
+                    expect($identifier.length).to.equal(response.body.length);
+                });
+            });
+        });
+    });
+    describe('Validating InfiniteScroll action', function () {
+        it('should contain 6 characters', () => {
+            cy.scrollTo('bottom');
             cy.wait(1000);
-            cy.get('@characters').should((response) => {
-                quantApiCharacters = response.body.length;
-            });
             cy.get('[data-cy=list-character]').should(($identifier) => {
-                quantScreenCharacters = $identifier.length;
+                expect($identifier.length).to.equal(6);
             });
-            expect(quantScreenCharacters).to.equal(quantApiCharacters);
+        });
+        it('should contain 9 characters', () => {
+            cy.scrollTo('bottom');
+            cy.wait(1000);
+            cy.get('[data-cy=list-character]').should(($identifier) => {
+                expect($identifier.length).to.equal(9);
+            });
+        });
+        it('should contain 12 characters', () => {
+            cy.scrollTo('bottom');
+            cy.wait(1000);
+            cy.get('[data-cy=list-character]').should(($identifier) => {
+                expect($identifier.length).to.equal(12);
+            });
         });
     });
     describe('Validating dropdown action', function () {
         it('should contain all characters', () => {
-            let quantApiCharacters;
             cy.request('https://www.breakingbadapi.com/api/characters').as('characters')
             cy.wait(1000);
-            cy.get('@characters').should((response) => {
-                quantApiCharacters = response.body.length;
-            });
-            cy.get('[data-cy=dropdown-limit]').click();
-            cy.get('[data-cy=dropdown-item]').eq(0).click();
-            cy.wait(1000);
-            cy.get('[data-cy=list-character]').should(($identifier) => {
-                expect($identifier.length).to.equal(quantApiCharacters);
+            cy.get('@characters').then(response => {
+                cy.get('[data-cy=dropdown-limit]').click();
+                cy.get('[data-cy=dropdown-item]').eq(0).click();
+                cy.wait(1000);
+                cy.get('[data-cy=list-character]').should(($identifier) => {
+                    expect($identifier.length).to.equal(response.body.length);
+                });
             });
         });
         it('should contain 9 characters', () => {
