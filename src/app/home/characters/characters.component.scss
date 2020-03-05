@@ -2,10 +2,18 @@
 
 ::ng-deep .jumbotron {
     background-color: transparent;
-    padding: 2rem 2rem;
+    padding: 1rem 1rem;
 }
 
 .characters {
+    &.list-characters {
+        margin-bottom: 70px;
+    }
+
+    .container {
+        height: 100%;
+    }
+
     .jumbotron-heading {
         color: map-get($colors, white);
         text-transform: uppercase;

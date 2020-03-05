@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
     this.setBackground();
   }
   setBackground() {
+    document.getElementsByTagName('html')[0].removeAttribute('class');
     document.getElementsByTagName('html')[0].classList.add('home');
   }
 }

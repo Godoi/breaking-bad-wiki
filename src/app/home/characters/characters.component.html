@@ -9,10 +9,14 @@
   </div>
 </section>
 
-<section class="characters">
-  <div class="container">
+<section class="characters list-characters">
+  <div class="container" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()">
+
     <app-dropdown (getLimit)="getLimitCharacters($event)" (getAll)="getAllCharacters()"> </app-dropdown>
     <app-list-box [data]="characters"></app-list-box>
+    <app-spinner [spinner]="spinner"></app-spinner>
   </div>
 </section>
+
 <app-loading [loading]="loading"></app-loading>

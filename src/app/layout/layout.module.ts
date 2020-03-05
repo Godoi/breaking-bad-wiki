@@ -8,6 +8,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { DetailedListComponent } from './detailed-list/detailed-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
     ListBoxComponent,
     LoadingComponent,
     DetailedListComponent,
-    DropdownComponent
+    DropdownComponent,
+    SpinnerComponent
   ],
   imports: [CommonModule, RouterModule, SharedModule],
   exports: [
@@ -25,7 +27,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
     ListBoxComponent,
     LoadingComponent,
     DetailedListComponent,
-    DropdownComponent
+    DropdownComponent,
+    SpinnerComponent
   ]
 })
 export class LayoutModule {}
