@@ -46,6 +46,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Code Review
 
+- Responsive on home pages and details
 - [implemented] Header component put the header tag;
 - [implemented] Componentize the elements more. (example the button in the header);
 - [implemented] Componentize more like button, dropdown, card;
