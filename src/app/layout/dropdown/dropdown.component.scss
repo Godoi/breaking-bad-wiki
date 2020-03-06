@@ -1,0 +1,11 @@
+@import 'variables';
+
+.btn-breaking {
+    color: map-get($colors, black) !important;
+    background-color: map-get($colors, green);
+    border-color: map-get($colors, green);
+}
+
+.dropdown-box {
+    margin-bottom: 40px;
+}

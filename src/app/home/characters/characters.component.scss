@@ -1,25 +1,14 @@
-::ng-deep .jumbotron {
+@import 'variables';
+
+.section-characters {
     background-color: transparent;
-    padding: 2rem 2rem;
 }
 
-.characters {
-    .jumbotron-heading {
-        color: #FFF;
-        text-transform: uppercase;
-    }
-
-    .lead {
-        color: #FFF;
-    }
+.characters-title {
+    color: map-get($colors, white);
+    text-transform: uppercase;
 }
 
-.btn-breaking {
-    color: #000000 !important;
-    background-color: #3fb573;
-    border-color: #3fb573;
-}
-
-.mb40 {
-    margin-bottom: 40px;
+.characters-paragraph {
+    color: map-get($colors, white);
 }

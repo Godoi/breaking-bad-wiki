@@ -1,42 +1,42 @@
-.navbar {
-    width: 100%;
+@import 'variables';
 
-    a {
-        color: #FFF !important;
+header {
+    width: 100%;
+    background-color: transparent !important;
+}
+
+.navbar-logo {
+    width: 120px;
+    margin: 14px;
+    position: relative;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+    .nav-link {
+        color: map-get($colors, black) !important;
         font-size: 1.25em;
         line-height: 24px;
-        transition: all .30s ease;
+        transition: none;
 
-        &:hover {
-            color: #ffc700 !important;
-        }
-    }
-
-    &.bg-light {
-        background-color: transparent !important;
-    }
-
-    .logo {
-        width: 120px;
-        margin: 14px;
-        position: relative;
-    }
-
-    .active {
-        a {
-            color: #ffc700 !important;
+        &:hover,
+        &:focus {
+            color: map-get($colors, yellow) !important;
         }
     }
 }
 
-.navbar-toggler {
-    background-color: transparent;
-    border-color: #FFF;
-    position: absolute;
-    top: 0;
-    margin-top: 28px;
-}
+.nav-link {
+    color: map-get($colors, black) !important;
+    font-size: 1.25em;
+    line-height: 24px;
+    transition: all .30s ease;
 
-.navbar-light .navbar-toggler-icon {
-    background-color: #FFF;
+    &:hover,
+    &:focus {
+        color: map-get($colors, yellow) !important;
+    }
+
+    &.-active {
+        color: map-get($colors, yellow) !important;
+    }
 }

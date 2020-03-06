@@ -1,0 +1,28 @@
+<div class="detailed row" *ngFor="let item of data">
+    <div class="col-6">
+        <img class="lazyloaded" src="{{item.img}}" alt="{{item.name}}" data-cy="thumb">
+    </div>
+    <div class="col-6">
+        <h1 data-cy="name">{{item.name}}</h1>
+        <dl class="detailed-list">
+            <dt class="detailed-terms"> Nickname: </dt>
+            <dd class="detailed-definition" data-cy="nickname"> {{item.nickname}} </dd>
+            <dt class="detailed-terms" *ngIf="item.birthday != 'Unknown'"> Birthday: </dt>
+            <dd class="detailed-definition" data-cy="birthday"> {{item.birthday}} </dd>
+            <dt class="detailed-terms" *ngIf="item.occupation"> Occupation: </dt>
+            <dd class="detailed-definition" data-cy="occupation">
+                <p class="detailed-paragraph" *ngFor="let occupation of item.occupation"> {{occupation}},</p>
+            </dd>
+            <dt class="detailed-terms" *ngIf="item.appearance.length">Breaking Bad Seasons : </dt>
+            <dd class="detailed-definition" data-cy="appearance">
+                <p class="detailed-paragraph" *ngFor="let appearance of item.appearance">{{appearance}},</p>
+            </dd>
+            <dt class="detailed-terms" *ngIf="item.status != '?'">
+                Status:
+            </dt>
+            <dd class="detailed-definition" *ngIf="item.status != '?'" data-cy="status">
+                {{item.status}}
+            </dd>
+        </dl>
+    </div>
+</div>

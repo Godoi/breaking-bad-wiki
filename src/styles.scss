@@ -2,22 +2,26 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-}
 
-html.home {
-    background-image: url('./assets/images/back-home.jpg')
-}
+    &.home {
+        background-image: url('./assets/images/back-home.jpg')
+    }
 
-html.site-content {
-    background: #000000 url('./assets/images/back-internal.jpg') center top/100% no-repeat;
-}
+    &.site-content {
+        background: #000000 url('./assets/images/back-internal.jpg') center top/100% no-repeat;
+    }
 
-html.not-found {
-    background-image: url('./assets/images/404.jpg');
+    &.not-found {
+        background-image: url('./assets/images/404.jpg');
+    }
 }
 
 body {
     background-color: transparent;
     margin: 0;
     transition: margin .25s ease;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
 }

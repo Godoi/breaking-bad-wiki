@@ -15,10 +15,7 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
   characters: ICharacters;
   id: number;
   loading: boolean;
-  constructor(
-    private route: ActivatedRoute,
-    private service: CharactersService
-  ) {}
+  constructor(private route: ActivatedRoute, private service: CharactersService) {}
 
   ngOnInit() {
     this.setBackground();
@@ -27,6 +24,7 @@ export class CharacterDetailComponent implements OnInit, OnDestroy {
     });
   }
   setBackground() {
+    document.getElementsByTagName('html')[0].removeAttribute('class');
     document.getElementsByTagName('html')[0].classList.add('site-content');
   }
   getSpecificCharacters(id: number) {

@@ -1,31 +1,22 @@
-<section class="characters jumbotron text-center">
+<section class="section-characters jumbotron text-center">
   <div class="container">
-    <h1 class="jumbotron-heading">Characters</h1>
-    <p class="lead">
+    <h1 class="characters-title">Characters</h1>
+    <p class="characters-paragraph">
       Something short and leading about the collection below its contents, the
-      creator, etc. Make it short and sweet, but not too short so folks don't
+      creator, etc. <br>Make it short and sweet, but not too short so folks don't
       simply skip over it entirely.
     </p>
   </div>
 </section>
 
-<section class="characters">
-  <div class="container">
-    <div class="dropdown mb40">
-      <button class="btn btn-breaking dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false" data-cy="dropdown-limit">
-        Select number of characters
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button" (click)="getAllCharacters()" data-cy="dropdown-item">All</button>
-        <button class="dropdown-item" type="button" (click)="getLimitCharacters(9)" data-cy="dropdown-item">9</button>
-        <button class="dropdown-item" type="button" (click)="getLimitCharacters(15)" data-cy="dropdown-item">15</button>
-        <button class="dropdown-item" type="button" (click)="getLimitCharacters(21)" data-cy="dropdown-item">21</button>
-        <button class="dropdown-item" type="button" (click)="getLimitCharacters(27)" data-cy="dropdown-item">27</button>
-        <button class="dropdown-item" type="button" (click)="getLimitCharacters(33)" data-cy="dropdown-item">33</button>
-      </div>
-    </div>
+<section class="section-characters">
+  <div class="container" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()">
+
+    <app-dropdown (getLimit)="getLimitCharacters($event)" (getAll)="getAllCharacters()"> </app-dropdown>
     <app-list-box [data]="characters"></app-list-box>
+    <app-spinner [spinner]="spinner"></app-spinner>
   </div>
 </section>
+
 <app-loading [loading]="loading"></app-loading>

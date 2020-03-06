@@ -35,3 +35,21 @@ The tests are available in the <b>application</b> folder.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Future Features
+
+- [implemented] Infinite Scroll for the characters page;
+- Set class default for CSS and configure stylelint;
+- Implement lazyload in the sub-routes;
+- Service of the angular to make the queryparams concatenation;
+- [implemented] CSS colors put in variables;
+
+## Code Review
+
+- Responsive on home pages and details
+- [implemented] Header component put the header tag;
+- [implemented] Componentize the elements more. (example the button in the header);
+- [implemented] Componentize more like button, dropdown, card;
+- [implemented] Character-detail replace [detailedlist]; (https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/dl)
+- [implemented] Create detailedlist of components;
+- [implemented] Review the selectors in Cypress that escaped and stayed in the css class;

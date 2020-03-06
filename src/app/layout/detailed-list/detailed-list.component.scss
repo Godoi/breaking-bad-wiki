@@ -1,0 +1,61 @@
+@import 'variables';
+
+@media screen and (prefers-reduced-motion: reduce) {
+    img {
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        transition: none;
+    }
+}
+
+img {
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+h1 {
+    color: map-get($colors, white);
+    border: none;
+    display: block;
+    padding: 0.375em;
+    padding-left: 0;
+}
+
+p {
+    color: map-get($colors, lightgray);
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+
+
+.detailed-list {
+    display: inline-grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: map-get($colors, lightgray);
+}
+
+.detailed-terms {
+    font-size: 1em;
+    line-height: 1.5;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.detailed-definition {
+    margin: 0;
+    padding: 0;
+    display: list-item;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.detailed-paragraph {
+    display: inline-block;
+    margin-bottom: 0rem;
+}

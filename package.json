@@ -8,7 +8,9 @@
     "test": "jest --no-cache",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "jest --coverage",
-    "lint": "ng lint",
+    "lint:js": "eslint src/**/*.ts --quiet",
+    "lint:css": "stylelint --fix ./src/**/*.{css,scss} || echo \"lint faild for some file(s).\"",
+    "prettify": "prettier --write ./src/**/*.{css,scss,js,jsx,ts,tsx}",
     "e2e": "cypress open",
     "cypress": "concurrently \"ng serve\" \"cypress open\""
   },
@@ -35,6 +37,22 @@
       }
     }
   },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-recommended",
+      "stylelint-rscss/config",
+      "stylelint-a11y/recommended"
+    ],
+    "plugins": [
+      "stylelint-scss",
+      "stylelint-no-indistinguishable-colors",
+      "stylelint-declaration-block-no-ignored-properties"
+    ],
+    "rules": {
+      "plugin/stylelint-no-indistinguishable-colors": true,
+      "plugin/declaration-block-no-ignored-properties": true
+    }
+  },
   "dependencies": {
     "@angular/animations": "~8.2.13",
     "@angular/common": "~8.2.13",
@@ -47,6 +65,7 @@
     "@angular/router": "~8.2.13",
     "bootstrap": "^4.4.1",
     "ngx-cookie-service": "^2.4.0",
+    "ngx-infinite-scroll": "^8.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -65,6 +84,13 @@
     "jest": "^25.1.0",
     "jest-createspyobj": "^1.2.2",
     "jest-preset-angular": "^8.0.0",
+    "stylelint": "^13.2.0",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-no-indistinguishable-colors": "^1.3.0",
+    "stylelint-rscss": "^0.4.0",
+    "stylelint-scss": "^3.14.2",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"

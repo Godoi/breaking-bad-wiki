@@ -1,0 +1,13 @@
+@import 'variables';
+
+.navbar-toggler {
+    background-color: transparent;
+    border-color: map-get($colors, white);
+    position: absolute;
+    top: 0;
+    margin-top: 28px;
+}
+
+.navbar-toggler-icon {
+    background-color: map-get($colors, white);
+}
