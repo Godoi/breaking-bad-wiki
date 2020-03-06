@@ -8,7 +8,25 @@
     padding: 11px 17px;
     text-decoration: none;
 
-    &:hover {
+    @media screen and (prefers-reduced-motion: reduce) {
+
+        &:hover,
+        &:focus {
+            transition: none;
+            color: map-get($colors, yellow) !important;
+            border: 1px solid map-get($colors, yellow);
+        }
+    }@media screen and (prefers-reduced-motion: reduce) {
+&:hover,
+    &:focus {
+        transition: none;
+        color: map-get($colors, yellow) !important;
+        border: 1px solid map-get($colors, yellow);
+}
+}
+
+    &:hover,
+    &:focus {
         transition: all .30s ease;
         color: map-get($colors, yellow) !important;
         border: 1px solid map-get($colors, yellow);

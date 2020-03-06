@@ -1,6 +1,6 @@
 @import 'variables';
 
-.back {
+.conteiner-loading {
     background-color: map-get($colors, black);
     display: flex;
     align-items: center;
@@ -10,14 +10,20 @@
     position: fixed;
     top: 0;
     left: 0;
+}
 
-    .spinner {
-        border: 8px solid map-get($colors, white);
-        border-left-color: map-get($colors, green);
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        animation: spin 1.2s linear infinite;
+.loading-spinner {
+    border: 8px solid map-get($colors, white);
+    border-left-color: map-get($colors, green);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1.2s linear infinite;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+    .loading-spinner {
+        animation: none;
     }
 }
 

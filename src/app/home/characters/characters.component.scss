@@ -1,25 +1,14 @@
 @import 'variables';
 
-::ng-deep .jumbotron {
+.section-characters {
     background-color: transparent;
-    padding: 1rem 1rem;
 }
 
-.characters {
-    &.list-characters {
-        margin-bottom: 70px;
-    }
+.characters-title {
+    color: map-get($colors, white);
+    text-transform: uppercase;
+}
 
-    .container {
-        height: 100%;
-    }
-
-    .jumbotron-heading {
-        color: map-get($colors, white);
-        text-transform: uppercase;
-    }
-
-    .lead {
-        color: map-get($colors, white);
-    }
+.characters-paragraph {
+    color: map-get($colors, white);
 }

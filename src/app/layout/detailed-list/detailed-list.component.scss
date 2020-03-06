@@ -1,5 +1,14 @@
 @import 'variables';
 
+@media screen and (prefers-reduced-motion: reduce) {
+    img {
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        transition: none;
+    }
+}
+
 img {
     width: 100%;
     height: auto;
@@ -21,30 +30,32 @@ p {
     line-height: 1.5;
 }
 
-dl {
+
+
+.detailed-list {
     display: inline-grid;
     list-style: none;
     margin: 0;
     padding: 0;
     color: map-get($colors, lightgray);
+}
 
-    dt {
-        font-size: 1em;
-        line-height: 1.5;
-        font-weight: bold;
-        display: inline-block;
-    }
+.detailed-terms {
+    font-size: 1em;
+    line-height: 1.5;
+    font-weight: bold;
+    display: inline-block;
+}
 
-    dd {
-        margin: 0;
-        padding: 0;
-        display: list-item;
-        font-weight: normal;
-        margin-bottom: 1rem;
+.detailed-definition {
+    margin: 0;
+    padding: 0;
+    display: list-item;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
 
-        p {
-            display: inline-block;
-            margin-bottom: 0rem;
-        }
-    }
+.detailed-paragraph {
+    display: inline-block;
+    margin-bottom: 0rem;
 }
