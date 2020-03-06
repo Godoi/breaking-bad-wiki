@@ -1,0 +1,83 @@
+{
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jest": true,
+        "jasmine": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": ["@typescript-eslint", "prettier", "import-helpers"],
+    "rules": {
+        "prettier/prettier": "warn",
+        "no-underscore-dangle": "off",
+        "class-methods-use-this": "off",
+        "no-await-in-loop": "off",
+        "import/prefer-default-export": "off",
+        "no-useless-constructor": "off",
+        "global-require": "off",
+        "no-param-reassign": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/order": "off",
+        "import/newline-after-import": "off",
+        "import/no-unresolved": "off",
+        "dot-notation": "off",
+        "no-extra-boolean-cast": "off",
+        "no-else-return": "off",
+        "default-case": "off",
+        "no-plusplus": "warn",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/no-empty-function": "warn",
+        "lines-between-class-members": ["warn", "always", {
+            "exceptAfterSingleLine": true
+        }],
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "ts": "never"
+            }
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": ["module", "/^src/", ["parent", "sibling", "index"]],
+                "alphabetize": {
+                    "order": "asc",
+                    "ignoreCase": true
+                }
+            }
+        ]
+    },
+    "overrides": [{
+        "files": ["*.js"],
+        "rules": {
+            "@typescript-eslint/no-var-requires": "off"
+        }
+    }],
+    "settings": {
+        "import/extensions": [".ts", ".js"],
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".js"]
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".ts", ".js", ".d.ts"],
+                "paths": ["."]
+            }
+        }
+    }
+}
