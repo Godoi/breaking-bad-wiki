@@ -40,9 +40,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - [implemented] Infinite Scroll for the characters page;
 - [implemented] Set class default for CSS and configure stylelint;
+- [implemented] CSS colors put in variables;
+- Search the characters
 - Implement lazyload in the sub-routes;
 - Service of the angular to make the queryparams concatenation;
-- [implemented] CSS colors put in variables;
 
 ## Code Review
 

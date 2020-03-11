@@ -7,7 +7,7 @@ import { ICharacters } from '../../shared/model/characters';
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.scss']
+  styleUrls: ['./characters.component.scss'],
 })
 export class CharactersComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription();
@@ -36,11 +36,11 @@ export class CharactersComponent implements OnInit, OnDestroy {
         .getAllCharacters()
         .pipe(
           take(1),
-          finalize(() => (this.loading = false))
+          finalize(() => (this.loading = false)),
         )
         .subscribe(res => {
           return (this.characters = res);
-        })
+        }),
     );
   }
   getCharactersScroll(limit: number) {
@@ -53,11 +53,11 @@ export class CharactersComponent implements OnInit, OnDestroy {
         .getLimitCharacters(limit)
         .pipe(
           take(1),
-          finalize(() => (this.spinner = false))
+          finalize(() => (this.spinner = false)),
         )
         .subscribe(res => {
           return (this.characters = res);
-        })
+        }),
     );
   }
   getLimitCharacters(limit: number) {
@@ -70,11 +70,11 @@ export class CharactersComponent implements OnInit, OnDestroy {
         .getLimitCharacters(limit)
         .pipe(
           take(1),
-          finalize(() => (this.loading = false))
+          finalize(() => (this.loading = false)),
         )
         .subscribe(res => {
           return (this.characters = res);
-        })
+        }),
     );
   }
   getQuantCharacters() {
@@ -84,7 +84,7 @@ export class CharactersComponent implements OnInit, OnDestroy {
         .pipe(take(1))
         .subscribe(res => {
           return (this.quantCharacters = Object.values(res).length);
-        })
+        }),
     );
   }
   onScroll() {
