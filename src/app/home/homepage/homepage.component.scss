@@ -8,28 +8,15 @@
     padding: 11px 17px;
     text-decoration: none;
 
-    @media screen and (prefers-reduced-motion: reduce) {
-
-        &:hover,
-        &:focus {
-            transition: none;
-            color: map-get($colors, yellow) !important;
-            border: 1px solid map-get($colors, yellow);
-        }
-    }@media screen and (prefers-reduced-motion: reduce) {
-&:hover,
-    &:focus {
-        transition: none;
-        color: map-get($colors, yellow) !important;
-        border: 1px solid map-get($colors, yellow);
-}
-}
-
     &:hover,
     &:focus {
         transition: all .30s ease;
         color: map-get($colors, yellow) !important;
         border: 1px solid map-get($colors, yellow);
+
+        @media screen and (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
     }
 }
 
@@ -49,11 +36,17 @@ h2 {
 }
 
 article {
-    margin-top: 20%;
-    margin-left: 10%;
+    margin: 0;
     background-color: map-get($colors, black);
     opacity: .60;
     padding: 40px;
     display: block;
     width: fit-content;
+}
+
+.home-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }

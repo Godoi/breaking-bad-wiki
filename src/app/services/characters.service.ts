@@ -7,7 +7,7 @@ import { ICharacters } from '../shared/model/characters';
 const API_URL = 'https://breakingbadapi.com/api';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CharactersService {
   constructor(private http: HttpClient) {}
@@ -16,7 +16,7 @@ export class CharactersService {
     const url = `${API_URL}/characters`;
     return this.http.get<ICharacters>(url).pipe(
       retry(1),
-      catchError(err => this.handleError(err, 'getAllCharacters'))
+      catchError(err => this.handleError(err, 'getAllCharacters')),
     );
   }
 
@@ -27,7 +27,7 @@ export class CharactersService {
     const url = `${API_URL}/characters?limit=${limit}&offset=0`;
     return this.http.get<ICharacters>(url).pipe(
       retry(1),
-      catchError(err => this.handleError(err, 'getLimitCharacters'))
+      catchError(err => this.handleError(err, 'getLimitCharacters')),
     );
   }
 
@@ -38,7 +38,15 @@ export class CharactersService {
     const url = `${API_URL}/characters/${id}`;
     return this.http.get<ICharacters>(url).pipe(
       retry(1),
-      catchError(err => this.handleError(err, 'getSpecificCharacters'))
+      catchError(err => this.handleError(err, 'getSpecificCharacters')),
+    );
+  }
+
+  getCharacterByName(name: string): Observable<ICharacters> {
+    const url = `${API_URL}/characters?name=${name}`;
+    return this.http.get<ICharacters>(url).pipe(
+      retry(1),
+      catchError(err => this.handleError(err, 'getCharacterByName')),
     );
   }
 

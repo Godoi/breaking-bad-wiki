@@ -2,31 +2,6 @@
 
 .section-not-found {
 
-    >h1 {
-        color: map-get($colors, white);
-        font-size: 4em;
-        text-transform: uppercase;
-        text-align: center;
-        margin: 0 0 20px 0;
-    }
-
-    >p {
-        color: map-get($colors, white);
-        font-size: 1.125em;
-        line-height: 1.5;
-    }
-
-    >a {
-        color: map-get($colors, yellow) !important;
-        text-decoration: none;
-    }
-
-    >a:hover,
-    a:focus {
-        color: map-get($colors, yellow);
-        text-decoration: underline;
-    }
-
     >.content {
         position: absolute;
         top: 25%;
@@ -36,6 +11,32 @@
         right: 0;
         margin: auto;
         z-index: 10;
+
+        >h1 {
+            color: map-get($colors, white);
+            font-size: 4em;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0 0 20px 0;
+        }
+
+        >p {
+            color: map-get($colors, white);
+            font-size: 1.125em;
+            line-height: 1.5;
+
+            >a {
+                color: map-get($colors, yellow) !important;
+                text-decoration: none;
+            }
+
+            >a:hover,
+            >a:focus,
+            >a:active {
+                color: map-get($colors, yellow);
+                text-decoration: underline;
+            }
+        }
     }
 
     >.bg {
